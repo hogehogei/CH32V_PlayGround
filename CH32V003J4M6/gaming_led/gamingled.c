@@ -26,8 +26,8 @@ int main()
 		GPIOC->BSHR = 0x00000006;		// Set GPIO C1, C2
 		GPIOD->BSHR = 0x00000040;		// Set GPIO D6
 		Delay_Ms( 250 );
-		GPIOC->BSHR = 0x00600000;		// Clear GPIO C1, C2
-		GPIOD->BSHR = 0x04000000;		// Clear GPIO D6
+		GPIOC->BSHR = 0x00060000;		// Clear GPIO C1, C2
+		GPIOD->BSHR = 0x00400000;		// Clear GPIO D6
 		Delay_Ms( 250 );
 	}
 }

@@ -1,6 +1,6 @@
 all : flash
 
-TARGET:=blink
+TARGET:=gamingled
 PREFIX=riscv-none-elf
 CH32V003FUN=../../ch32v003fun/ch32v003fun
 
