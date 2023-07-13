@@ -21,9 +21,9 @@ void Init_Timer2(void)
 
     // SMCFGR: default clk input is CK_INT
     // set TIM2 clock prescaler divider 
-    TIM2->PSC = (uint16_t)47;       // 48MHz / (47+1) = 1000KHz(Timer CK_CNT)
+    TIM2->PSC = (uint16_t)479;      // 48MHz / (479+1) = 100KHz(Timer CK_CNT)
     // set PWM total cycle width
-    TIM2->ATRLR = MAX_DUTY;	        // 1000KHz / 1024 = 1000Hz(1ms)
+    TIM2->ATRLR = MAX_DUTY;	        // 100KHz / 1024 = 100Hz(10ms)
     
     // for channel 1, 3, 4, let CCxS stay 00 (output), set OCxM to 111 (PWM II)
     // enabling preload causes the new pulse width in compare capture register only to come into effect when UG bit in SWEVGR is set (= initiate update) (auto-clears)
@@ -65,7 +65,6 @@ void Timer2_SetPWMWidth(uint8_t ch, uint16_t width)
         TIM2->CH4CVR = width; 
         break;
     }
-    TIM2->SWEVGR |= TIM_UG; // load new value in compare capture register
 }
 
 float floorf( float x )
@@ -170,6 +169,6 @@ int main()
 
         count = (count + 1) % 360;
 
-        Delay_Ms(10);
+        Delay_Ms(5);
     }
 }
